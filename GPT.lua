@@ -16,151 +16,48 @@
     - Make sure to replace [YOUR OPENAI TOKEN] with your actual OpenAI API key in the 'apiKey' variable.
     - Ensure you have an active internet connection on your ComputerCraft computer to communicate with the OpenAI API.
 
+    Notes:
+    - This program requires an active internet connection and the 'http' and 'textutils' Lua libraries.
+    - Make sure you have installed and set up the ComputerCraft mod and have a working in-game computer.
+    - To run this program on a ComputerCraft computer, follow these steps:
+        1. Craft a ComputerCraft computer and place it in the game world.
+        2. Right-click on the computer to open its interface
+        3. Copy and paste the following command and press Enter to download the program:
+           pastebin get DLXQR13m startup
+        4. Modify the 'apiKey' variable with your actual OpenAI API key. Edit the 'startup' file using the 'edit' command.
+        5. Press Ctrl and save the changes and then press Ctrl and exit the editor.
+        6. Restart the ComputerCraft computer to run the program automatically on startup.
+    - The program will now automatically start whenever the ComputerCraft computer is powered on and will prompt you for input and generate responses using the OpenAI API.
+
     Example Usage:
-    - You can start a conversation with the chatbot:
-        [Me]: Hello, how are you?
-        [GPT]: I'm fine, thank you. How can I assist you today?
+    - After following the installation and setup instructions, you can start a conversation with the chatbot:
 
     Feel free to have a conversation with the chatbot by entering messages one by one on the ComputerCraft computer.
-    ]]
---]]
-local titles = {[[  _   _   _   _   _   _   _  
- / \ / \ / \ / \ / \ / \ / \ 
-| G | P | T | . | l | u | a |
- \_/ \_/ \_/ \_/ \_/ \_/ \_/
-]], [[  ___  ____  ____    __    _  _   __  
- / __)(  _ \(_  _)  (  )  / )( \ / _\ 
-( (_ \ ) __/  )(  _ / (_/\) \/ (/    \
- \___/(__)   (__)(_)\____/\____/\_/\_/
-]], [[  __  ______         
- / _ /__)/     /  _ 
-(__)/   (    .((/(/ 
-]], [[ ___   ___   ___                          
-|     |   |   |           |               
-| +-  |-+-    +           +          -    
-|   | |       |           |   | |   | |   
- ---                   -  ---  --    --   
-
- ]], [[  ___|  _ \__ __| |             
- |     |   |  |   | |   |  _` | 
- |   | ___/   |   | |   | (   | 
-\____|_|     _|_)_|\__,_|\__,_| 
-
-]], [[ ___ ___ _____ _           
-/ __| _ \_   _| |_  _ __ _ 
-|(_ |  _/ | |_| | || / _` |
-\___|_|   |_(_)_|\_,_\__,_|
-
-]], [[   __________  ______   __           
-  / ____/ __ \/_  __/  / /_  ______ _
- / / __/ /_/ / / /    / / / / / __ `/
-/ /_/ / ____/ / /  _ / / /_/ / /_/ / 
-\____/_/     /_/  (_)_/\__,_/\__,_/  
-
-]], [[  ________  ______  __         
- / ___/ _ \/_  __/ / /_ _____ _
-/ (_ / ___/ / / _ / / // / _ `/
-\___/_/    /_/ (_)_/\_,_/\_,_/ 
-
-]], [[  ____ ____ _____ _             
- / ___|  _ \_   _| |_   _  __ _ 
-| |  _| |_) || | | | | | |/ _` |
-| |_| |  __/ | |_| | |_| | (_| |
- \____|_|    |_(_)_|\__,_|\__,_|
-
-]], [[  _____________________________  .__                
- /  _____/\______   \__    ___/  |  |  __ _______   
-/   \  ___ |     ___/ |    |     |  | |  |  \__  \  
-\    \_\  \|    |     |    |     |  |_|  |  // __ \
- \______  /|____|     |____|    /\____/____/(____ /
-       \/                       \/              \/
-
-]], [[ .--. .---. .-----.  .-.               
-: .--': .; :`-. .-'  : :               
-: : _ :  _.'  : :    : :  .-..-. .--.  
-: :; :: :     : :  _ : :_ : :; :' .; ; 
-`.__.':_;     :_; :_;`.__;`.__.'`.__,_;
-
-]], [[ /~~\|~~\~~|~~ |         
- | __|__/  |   ||   |/~~|
- \__/|     |  .| \_/|\__|
-
-]], [[.|'''''| '||'''|, |''||''|    '||`                  
-|| .      ||   ||    ||        ||                   
-|| |''||  ||...|'    ||        ||  '||  ||`  '''|.  
-||    ||  ||         ||        ||   ||  ||  .|''||  
-`|....|' .||        .||.   .. .||.  `|..'|. `|..||.
-
-]], [[ ___ _______   _           
- ))_ ))_)))    )) _    ___ 
-((_(((  ((  o (( ((_( ((_(
-
-]], [[   __   ___  _____           
- ,'_/  / o |/_  _/  /7     _ 
-/ /_n / _,'  / /   ///7/7,'o|
-|__,'/_/    /_/() ///__/ |_,7
-
-]], [[ ____  ___  _____   _           
-(  __)(   )(_   _) ( )          
-| | _ | O  | | |   | | _ _  ___ 
-( )_))( __/  ( ) _ ( )( U )( o )
-/____\/_\    /_\(_)/_\/___\/_^_\
-
-]], [[  __  ___ ___          
- / _|| o \_ _| ||   _  
-( |_n|  _/| |  |||U/o\ 
- \__/|_|  |_() L|\_|_,] 
-   
-]], [[ ___   ___  ___    _           
-/  _> | . \|_ _|  | | _ _  ___ 
-| <_/\|  _/ | | _ | || | |<_> |
-`____/|_|   |_|<_>|_|`___|<___|
-
-]], [[ _______ _______ _______    __             
-|   _   |   _   |       |  |  .--.--.---.-.
-|.  |___|.  1   |.|   | |__|  |  |  |  _  |
-|.  |   |.  ____`-|.  |-|__|__|_____|___._|
-|:  1   |:  |     |:  |                    
-|::.. . |::.|     |::.|                    
-`-------`---'     `---'  
-
-]], [[____ ___  ___  _    _  _ ____ 
-| __ |__]  |   |    |  | |__| 
-|__] |     |  .|___ |__| |  | 
-
-]], [[ __  __  ___           
-[ __[__)  |     |. . _.
-[_./|     |   * |(_|(_]
-
-]], [[ .d8888b.  8888888b. 888888888 888      
-d88P  Y88b 888   Y88b   888    888                 
-888    888 888    888   888    888                 
-888        888   d88P   888    888 888  888 8888b.  
-888  88888 8888888P"    888    888 888  888    "88b
-888    888 888          888    888 888  888.d888888
-Y88b  d88P 888          888 db 888 Y88b 888888  888
- "Y8888P88 888          888 YP 888 "Y88888"Y888888 
- 
- ]], [[_______ ______ _______  __              
-|     __|   __ \_     _||  |.--.--.---.-.
-|    |  |    __/ |   |__|  ||  |  |  _  |
-|_______|___|    |___|__|__||_____|___._|
- 
-]], [[  _____ _____ _______ _             
- / ____|  __ \__   __| |            
-| |  __| |__) | | |  | |_   _  __ _ 
-| | |_ |  ___/  | |  | | | | |/ _` |
-| |__| | |      | | _| | |_| | (_| |
- \_____|_|      |_|(_)_|\__,_|\__,_|
-
-]], [[ ## ##  ###      #          
-#   # #  #       #  # #  ## 
-# # ##   #       #  # # # # 
-# # #    #       ## ### ### 
- ## #    #   #
-
-]]}
-
+]] --
+local titles =
+    {"  _   _   _   _   _   _   _\n / \\ / \\ / \\ / \\ / \\ / \\ / \\\n| G | P | T | . | l | u | a |\n \\_/ \\_/ \\_/ \\_/ \\_/ \\_/ \\_/\n",
+     "  ___  ____  ____    __    _  _   __\n / __)(  _ \\(_  _)  (  )  / )( \\ / _\\\n( (_ \\ ) __/  )(  _ / (_/\\) \\/ (/    \\\n \\___/(__)   (__)(_)\\____/\\____/\\_/\\_/\n",
+     "  __  ______\n / _ /__)/     /  _\n(__)/   (    .((/(/\n",
+     " ___   ___   ___\n|     |   |   |       |\n| +-  |-+-    +       +         -\n|   | |       |       |   | |  | |\n ---               -  ---  --   --\n",
+     " ___ ___ _____ _\n/ __| _ \\_   _| |_  _ __ _\n|(_ |  _/ | |_| | || / _` |\n\\___|_|   |_(_)_|\\_,_\\__,_|\n",
+     "   __________  ______   __\n  / ____/ __ \\/_  __/  / /_  ______ _\n / / __/ /_/ / / /    / / / / / __ `/\n/ /_/ / ____/ / /  _ / / /_/ / /_/ /\n\\____/_/     /_/  (_)_/\\__,_/\\__,_/\n",
+     "  ________  ______  __\n / ___/ _ \\/_  __/ / /_ _____ _\n/ (_ / ___/ / / _ / / // / _ `/\n\\___/_/    /_/ (_)_/\\_,_/\\_,_/\n",
+     "  ____ ____ _____ _\n / ___|  _ \\_   _| |_   _  __ _\n| |  _| |_) || | | | | | |/ _` |\n| |_| |  __/ | |_| | |_| | (_| |\n \\____|_|    |_(_)_|\\__,_|\\__,_|\n",
+     "  _____________________________  .__\n /  _____/\\______   \\__    ___/  |  |  __ _______   \n/   \\  ___ |     ___/ |    |     |  | |  |  \\__  \\  \n\\    \\_\\  \\|    |     |    |     |  |_|  |  // __ \\\n \\______  /|____|     |____|    /\\____/____/(____ /\n        \\/                      \\/              \\/\n",
+     " .--. .---. .-----.  .-.\n: .--': .; :`-. .-'  : :\n: : _ :  _.'  : :    : :  .-..-. .--.\n: :; :: :     : :  _ : :_ : :; :' .; ;\n`.__.':_;     :_; :_;`.__;`.__.'`.__,_;\n",
+     " /~~\\|~~\\~~|~~ |\n | __|__/  |   ||   |/~~|\n \\__/|     |  .| \\_/|\\__|\n",
+     ".|'''''| '||'''|, |''||''|    '||`\n|| .      ||   ||    ||        ||\n|| |''||  ||...|'    ||        ||  '||  ||`  '''|.\n||    ||  ||         ||        ||   ||  ||  .|''||\n`|....|' .||        .||.   .. .||.  `|..'|. `|..||.\n",
+     " ___ _______   _\n ))_ ))_)))    )) _    ___\n((_(((  ((  o (( ((_( ((_(\n",
+     "   __   ___  _____\n ,'_/  / o |/_  _/  /7     _\n/ /_n / _,'  / /   ///7/7,'o|\n|__,'/_/    /_/() ///__/ |_,7\n",
+     " ___   ___  ___    _\n/  _> | . \\|_ _|  | | _ _  ___\n| <_/\\|  _/ | | _ | || | |<_> \n`____/|_|   |_|<_>|_|`___|<___\n",
+     " _______ _______ _______    __\n|   _   |   _   |       |  |  .--.--.---.-.\n|.  |___|.  1   |.|   | |__|  |  |  |  _  |\n|.  |   |.  ____`-|.  |-|__|__|_____|___._|\n|:  1   |:  |     |:  |\n|::.. . |::.|     |::.|\n`-------`---'     `---'\n",
+     "____ ___  ___  _    _  _ ____\n| __ |__]  |   |    |  | |__|\n|__] |     |  .|___ |__| |  |\n",
+     " __  __  ___\n[ __[__)  |     |. . _.\n[_./|     |   * |(_|(_]\n",
+     " .d8888b.  8888888b. 888888888 888\nd88P  Y88b 888   Y88b   888    888\n888    888 888    888   888    888\n888        888   d88P   888    888 888  888 8888b.\n888  88888 8888888P\"    888    888 888  888    \"88b\n888    888 888          888    888 888  888.d888888\nY88b  d88P 888          888 db 888 Y88b 888888  888\n \"Y8888P88 888          888 YP 888 \"Y88888\"Y888888\n",
+     "_______ ______ _______  __\n|     __|   __ \\_     _||  |.--.--.---.-.\n|    |  |    __/ |   |__|  ||  |  |  _  |\n|_______|___|    |___|__|__||_____|___._|\n",
+     "  _____ _____ _______ _\n / ____|  __ \\__   __| |\n| |  __| |__) | | |  | |_   _  __ _\n| | |_ |  ___/  | |  | | | | |/ _` |\n| |__| | |      | | _| | |_| | (_| |\n \\_____|_|      |_|(_)_|\\__,_|\\__,_|\n",
+     " ## ##  ###      #\n#   # #  #       #  # #  ##\n# # ##   #       #  # # # #\n# # #    #       ## ### ###\n ## #    #   #\n"}
+local title = titles[math.random(1, #titles)]
 -- OpenAI API key for authentication
 local apiKey = "[YOUR OPENAI TOKEN]"
 
@@ -195,17 +92,21 @@ local function print_with_random_colors(data)
     end
 end
 
+-- Print a random title in random colors
+print_with_random_colors(title)
+print("\nType 'exit' to exit.\n")
+
 -- Array to store the conversation messages
 local messages = {}
-
--- Print a random title in random colors
-print_with_random_colors(titles[math.random(1, #titles)])
 
 -- Start an infinite loop for user input and model responses
 while true do
     print_with_color("[Me]: ", colors.magenta)
     local prompt = io.read()
 
+    if prompt == "exit" then
+        exit()
+    end
     -- Add the user's message to the conversation messages array
     table.insert(messages, {
         role = "user",
@@ -251,7 +152,7 @@ while true do
             end
             requesting = false
 
-        -- Handle failed HTTP response
+            -- Handle failed HTTP response
         elseif event == "http_failure" then
             print("Server didn't respond.")
             requesting = false
