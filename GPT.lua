@@ -1,5 +1,5 @@
 --[[
-    Program Name: OpenAI Chatbot
+    Program Name: GPT.lua
     Version: 1.0
     Description: This program demonstrates a chatbot that interacts with the OpenAI API using the GPT-3.5 Turbo model. It allows users to have conversations with the chatbot by sending user messages and receiving model-generated responses.
 
