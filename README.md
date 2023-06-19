@@ -27,7 +27,8 @@ Notes:
     1. Craft a ComputerCraft computer and place it in the game world.
     2. Right-click on the computer to open its interface
     3. Copy and paste the following command and press Enter to download the program:
-        pastebin get DLXQR13m startup
+
+        `pastebin get DLXQR13m startup`
     4. Modify the 'apiKey' variable with your actual OpenAI API key. Edit the 'startup' file using the 'edit' command.
     5. Press Ctrl and save the changes and then press Ctrl and exit the editor.
     6. Restart the ComputerCraft computer to run the program automatically on startup.
