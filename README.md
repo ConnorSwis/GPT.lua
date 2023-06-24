@@ -1,40 +1,37 @@
 # GPT.lua
 
-Version: 1.0
+ChatGPT Interface for Computercraft Computers
 
-Description: This program demonstrates a chatbot that interacts with the OpenAI API using the GPT-3.5 Turbo model. It allows users to have conversations with the chatbot by sending user messages and receiving model-generated responses.
+### Author
+Connor J. Swislow
 
-Author: Connor J. Swislow
+### License
+Unlicense (public domain dedication)
 
-Created: 6/18/2023
+## Description
+GPT.lua is a Lua script designed for Computercraft computers, providing an interface to interact with the OpenAI ChatGPT API. It allows users to have interactive conversations with the language model using a simple chat-based system.
 
-Last Modified: 6/18/2023
+## Requirements
+- OpenAI API key: To use this program, you need to have an OpenAI API key. Make sure to obtain one before running the script.
+- Computercraft: This script is designed to run within the Computercraft mod for Minecraft. Ensure that you have Computercraft installed and running on your Minecraft server or local game.
 
-License: This program is released under the Unlicense (http://unlicense.org). You can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, free of charge, without any restrictions or requirements.
+## Installation
+1. Open a Computercraft computer in your Minecraft world.
+2. Run the following command to download the GPT.lua script from Pastebin:
+   pastebin get EBC4kph7 startup
+3. Restart the Computercraft computer to initialize the program.
 
-Credits: 
-- This program utilizes the OpenAI API for chat completions. (https://openai.com)
-- The Lua code structure and conventions were inspired by Lua programming best practices.
+## Usage
+1. After the program has been installed and the computer has restarted, it will prompt you to enter your OpenAI API key.
+2. Paste your API key when prompted. This step is required to authenticate your access to the OpenAI ChatGPT API.
+3. Once the API key is set, the program will display a randomly chosen title for the chatbot.
+4. Type your messages to have a conversation with the chatbot. Type 'exit' to exit the program.
+5. The chatbot will respond to your messages based on the conversation history and the underlying language model.
+6. Enjoy interacting with the ChatGPT-powered chatbot!
 
-Additional Comments:
-- Make sure to replace [YOUR OPENAI TOKEN] with your actual OpenAI API key in the 'apiKey' variable.
-- Ensure you have an active internet connection on your ComputerCraft computer to communicate with the OpenAI API.
+## Note
+- This script is dependent on an internet connection to communicate with the OpenAI ChatGPT API.
+- Use the GPT-3.5 Turbo model for generating responses. Adjust the 'model' variable in the script if you want to use a different model.
 
-Notes:
-- This program requires an active internet connection and the 'http' and 'textutils' Lua libraries.
-- Make sure you have installed and set up the ComputerCraft mod and have a working in-game computer.
-- To run this program on a ComputerCraft computer, follow these steps:
-    1. Craft a ComputerCraft computer and place it in the game world.
-    2. Right-click on the computer to open its interface
-    3. Copy and paste the following command and press Enter to download the program:
-
-        `pastebin get DLXQR13m startup`
-    4. Modify the 'apiKey' variable with your actual OpenAI API key. Edit the 'startup' file using the 'edit' command.
-    5. Press Ctrl and save the changes and then press Ctrl and exit the editor.
-    6. Restart the ComputerCraft computer to run the program automatically on startup.
-- The program will now automatically start whenever the ComputerCraft computer is powered on and will prompt you for input and generate responses using the OpenAI API.
-
-Example Usage:
-- After following the installation and setup instructions, you can start a conversation with the chatbot:
-
-Feel free to have a conversation with the chatbot by entering messages one by one on the ComputerCraft computer.
+## Credits:
+This program is based on the OpenAI GPT-3.5 language model and was created by Connor J. Swislow.
