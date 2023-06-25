@@ -16,7 +16,7 @@ Requirements:
 Installation:
 1. Open a Computercraft computer in your Minecraft world.
 2. Run the following command to download the GPT.lua script from Pastebin:
-   pastebin get EBC4kph7 startup
+   pastebin get M9YsgDES startup
 3. Restart the Computercraft computer to initialize the program.
 
 Usage:
