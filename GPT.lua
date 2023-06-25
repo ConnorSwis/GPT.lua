@@ -140,17 +140,18 @@ while true do
     local requesting = true
     -- Send an HTTP POST request to the OpenAI API endpoint
     http.request(endpoint, payloadJson, headers)
-
+    print_with_color("[GPT]: ", colors.lime)
     while requesting do
+        io.write(".")
         local event, url, sourceText = os.pullEvent()
 
         if event == "http_success" then
             local responseBody = sourceText.readAll()
             sourceText.close()
-
+            
             -- Parse the JSON response from the API
             local responseJson = textutils.unserializeJSON(responseBody)
-
+            
             if responseJson and responseJson.choices and responseJson.choices[1] then
                 local generatedText = responseJson.choices[1].message.content
 
@@ -159,7 +160,9 @@ while true do
                     role = "system",
                     content = generatedText
                 })
-
+                local _, y = term.getCursorPos()
+                term.setCursorPos(1, y)
+                term.clearLine()
                 print_with_color("[GPT]: ", colors.lime)
                 gradual_print(generatedText)
             else
