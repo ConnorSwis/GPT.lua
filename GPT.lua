@@ -497,8 +497,10 @@ function Main()
         OPENAI_KEY = apiKey
     end
 
-    -- Display the chatbot title with random colors
-    Screen.print_with_random_colors(title)
+    -- Display the chatbot title with random colors if not a pocket computer
+    if not pocket then
+        Screen.print_with_random_colors(title)
+    end
     Screen.print_colored_text("{lime}/help{/lime} to see commands.\n")
 
     -- Main loop to process user input
