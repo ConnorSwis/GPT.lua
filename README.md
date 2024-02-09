@@ -19,7 +19,7 @@ GPT.lua is a Lua script designed for Computercraft computers, providing an inter
 1. Open a Computercraft computer in your Minecraft world.
 2. Run the following command to download the GPT.lua script from Pastebin:
    
-   `pastebin get HXrb6iZt startup`
+   `pastebin get Zry5i7qh startup`
 3. Restart the Computercraft computer to initialize the program.
 
 ## Usage
